@@ -23,7 +23,7 @@ def create(request):
 @create.method('POST')
 def create(request):
     cat = Cat()
-    form = CatModelForm(request.POST, instance=tovar)
+    form = CatModelForm(request.POST, instance=cat)
     if form.is_valid():
         cat = form.save()
         return HttpResponseRedirect(reverse('cat:show', args=[cat.pk]))
