@@ -1,0 +1,8 @@
+body {
+    background: url("/static/light-blue-ringo.png"); 
+}
+
+
+ul.errorlist {
+    color: red;
+}

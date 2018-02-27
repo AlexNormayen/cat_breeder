@@ -1,0 +1,26 @@
+{% extends 'generic.html' %}
+{% block breed %}Кот -- {{ cat.breed }}{% endblock %}
+{% block header %}{{ cat.breed }}{% endblock %}
+  
+{% block contents %}
+
+    
+<table border="1">  
+    <tr><td>Порода</td><td>{{ cat.breed }}</td></tr>
+    <tr><td>Имя</td><td>{{ cat.name_cat }}</td></tr>
+    <tr><td>Возраст</td><td>{{ cat.age }}</td></tr>
+    <tr><td>Описание</td><td>{{ cat.description }}</td></tr>
+    <tr><td>Группа</td><td>{{ cat.group.title }}</td></tr>
+    <tr><td>параметры</td><td>{{ parametrs }}</td></tr>
+     
+
+</table>
+
+<p>Временно</p>
+<ul>
+  {% for parametr in cat.parametrs.all %}
+  <li>{{ parametr.breed }}</li>
+  {% endfor%}
+</ul>
+{% endblock%}
+       

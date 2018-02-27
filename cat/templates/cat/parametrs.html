@@ -1,0 +1,19 @@
+{% extends 'generic.html' %} 
+
+{% load static %}
+
+{% block header %}Параметры для {{ cat.breed }}{% endblock %} 
+
+{% block contents %}
+<ul>
+  {% for t in cat.parametrs.all %}
+  
+ <li> {{ t.breed }} &mdash;&mdash;&mdash; <a href="{% url 'cat:drop_parametr' cat.pk t.pk %}"><img src="{% static 'cat/delete.gif' %}" /></a></li>
+  {% endfor %}
+</ul>
+
+<form method="POST">{% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Добавить"/>
+</form>
+{% endblock %}

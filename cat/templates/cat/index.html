@@ -1,0 +1,37 @@
+{% extends 'generic.html' %}
+{% block breed %}Список котов{% endblock %}
+{% block header %}Список котов{% endblock %}
+  
+{% block contents %}
+    
+<table border="1">
+  <tr>
+    <th>Имя кота</th>
+    <th>Порода</th>
+      <th>Возраст</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+  </tr>
+  {% for t in all_cats %}
+  <tr>
+    <td>{{ t.name_cat }}</td>   <!-- Имя   -->
+    <td>{{ t.breed   }}</td>   <!-- порода  -->
+    <td>{{ t.age}}</td>   <!--Возраст        -->
+    <td>
+      {% for parametr in t.parametrs.all|slice:':5' %}
+        {{ parametr.title }}
+      {% endfor %}
+    </td>
+    <td><a href="{% url 'cat:parametrs' t.pk %}">параметры</a></td>
+    <td><a href="{% url 'cat:show' t.pk %}"> просмотр</a></td>
+    <td><a href="{% url 'cat:edit' t.pk %}"> редактирование</a></td>
+    <td><a href="{% url 'cat:delete' t.pk %}"> удалить</a></td>
+    <td><a href="{% url 'cat:add_picture' t.pk %}">Добавить картинку</a></td>
+    <td><img src="{% url 'cat:picture' t.pk %}" alt="картинка" /></td>
+  </tr>
+    {% endfor %}
+</table>
+
+<p><a href="{% url 'cat:create' %}"> Новый кот</a></p>
+{% endblock%}
+      

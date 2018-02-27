@@ -1,0 +1,22 @@
+{% extends 'generic.html' %}
+{% block title %}Группы котов{% endblock %}
+{% block header %}Группы котов{% endblock %}
+  
+{% block contents %}
+    
+<table border="1">
+  <tr>
+    <th>Код</th>
+    <th>Наименование</th>
+      <th>Короткоживущий</th>
+  </tr>
+  {% for t in all_group %}
+  <tr>
+    <td>{{ t.code }}</td>   <!-- Имя    -->
+    <td>{{ t.title   }}</td>   <!-- порода  -->
+    <td>{{ t.scoro}}</td>   <!--Наличие        -->
+  </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+      

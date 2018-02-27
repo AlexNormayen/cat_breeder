@@ -1,0 +1,29 @@
+<html>
+  <head><title>{% block title %}Площадка заводчика{% endblock %}</title></head>
+  <body>
+  
+  
+  <!-- Main menu  -->
+  <table>
+    <tr>
+      <td><a href="{% url 'home:index'  %}"> Начало</td>
+      <td><a href="{% url 'cat:index' %}">Коты</td>
+      <td><a href="{% url 'cat:allgroups' %}">Группы</a></td>
+    </tr>
+  </table>
+  <!-- End of main menu -->
+  
+  <!-- Main title -->
+  <H1>{% block header %}Лучшая площадка для заводчика{% endblock %}</H1>
+  <!-- End of main title -->
+  
+  <div id="contents">
+  <!-- Contents -->
+  {% block contents %}
+  <p>Добро пожаловать!!!!!</p>
+  {% endblock %}
+  <!-- End of contents -->
+  </div>
+  
+  </body>  
+</html>
